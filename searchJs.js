@@ -24,4 +24,14 @@ function contains(object, searchValue){
     if(typeof object !== "object" || object === null ){
         return searchValue === object; 
     }
+
+    // Recursive case: if the object is an object (but not null), iterate over its values
+    for (const value of Object.values(object)) {
+        // Recursively call contains for each value
+        if (contains(value, searchValue)) {
+        return true; // If the searchValue is found in any nested object, return true
+        }
+    }
+
+    return false
 }
