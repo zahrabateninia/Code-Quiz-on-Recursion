@@ -6,11 +6,9 @@ var allAreLessThanSeven = all([1,2,9], function(num){
     return num < 7
 });
 
-console.log(allAreLessThanSeven())
-
 function all(arr, callback){
     // Initialize copy with a shallow copy of the array only if copy is falsy ( undefined, NULL, false, 0, NAN)
-    let copy = copy || arr.slice() // Create a shallow copy of the original array
+    var copy = copy || arr.slice() // Create a shallow copy of the original array
     // base case of recursive function:
     if (copy.length === 0) return true;
 
@@ -22,3 +20,6 @@ function all(arr, callback){
     }
 
 }
+
+console.log(allAreLessThanSeven); // false
+
