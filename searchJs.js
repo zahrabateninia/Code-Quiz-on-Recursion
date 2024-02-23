@@ -2,7 +2,7 @@
 
 // Write a function called contains that searches for a value in a nested object. It returns true if the object contains that value.
 
-var nestedObject = {
+let nestedObject = {
     data: {
         info: {
             stuff: {
@@ -19,3 +19,9 @@ var nestedObject = {
 
 let hasIt = contains(nestedObject, 44); // true
 let doesntHaveIt = contains(nestedObject, "foo"); // false
+
+function contains(object, searchValue){
+    if(typeof object !== "object" || object === null ){
+        return searchValue === object; 
+    }
+}
