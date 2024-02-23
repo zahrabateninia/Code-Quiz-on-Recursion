@@ -9,6 +9,15 @@ var allAreLessThanSeven = all([1,2,9], function(num){
 console.log(allAreLessThanSeven())
 
 function all(arr, callback){
-    let copy = copy || Array.slice // Create a shallow copy of the original array
-    
+    let copy = copy || arr.slice() // Create a shallow copy of the original array
+    // base case of recursive function:
+    if (copy.length === 0) return true;
+
+    if(callback(copy[0])){
+        copy.shift() // Remove the first element of the copied array
+        return all(copy, callback)
+    }else{
+        return false
+    }
+
 }
